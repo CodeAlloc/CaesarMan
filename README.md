@@ -5,6 +5,7 @@ CaesarMan is a tool that encypts/decrypts Caesar based Ciphers.
 # Main Features:
   - Decryption of data using a Brute Force mode
   - Usage of an "intelligent" mode to Brute Force the cipher more effectively, if written in English Language
+
 ### Installation
 
 CaesarMan requires Python 3+.
@@ -21,8 +22,7 @@ $ chmod +x CaesarMan.py
 ```
 
 and afterward use the tool by typing ./CaesarMan.py .
-### Intelligent Mode
-Intelligent mode uses the vowels inclusion in almost every word of english language to make decipher efficient. There are exceptions as well, which are regularly updated in exceptions.nhx file.
 
-## Contribute
-You can contribute either by sending pull requests with improved code, or also by sending pull requests with updated exceptions.nhx file (by adding more English Words which don't have a vowel).
+### Brute Force & Intelligent Mode
+You can simply brute force to crack a Caesar Cipher using this tool. Intelligent mode brute forces by a technique we analyzed using a statistical model, to lessen the possible original text output, in order to make brute forcing a lot more efficient. Intelligent mode, however, is availabe only for Pure English Language.
+
