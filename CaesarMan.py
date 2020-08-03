@@ -57,14 +57,6 @@ elif encdec.lower() == "d":
 	else:
 		intelligent = True if input("Enter 'Y' if you want intelligent bruteforcing: ").lower() == "y" else False
 		if intelligent:
-			try:
-				buff = open("exceptions.nhx", "r")
-			except FileNotFoundError:
-				print("Error: exceptions.nhx file missing. Cannot Continue")
-				exit(1)
-			wordslist = buff.read()
-			buff.close()
-			wordslist = wordslist.split("\n")
 			for i in range(51):
 				shift = i - 25
 				output = ""
@@ -83,13 +75,16 @@ elif encdec.lower() == "d":
 						output += compchar
 				words = output.split(" ")
 				flagged = 0
+				twords = 0
 				for word in words:
 					if word.lower() == word and word.upper() == word:
 						continue
-					if "a" not in word and "e" not in word and "i" not in word and "o" not in word and "u" not in word and word.lower() not in wordslist:
-						flagged = 1
+					if "a" not in word and "e" not in word and "i" not in word and "o" not in word and "y" not in word and "u" not in word:
+						flagged = flagged + 1
+					twords = twords + 1
 				if flagged:
-					pass
+					if (flagged/twords) < (1/3):
+						print("\nPossible Decrypted Text:", output)
 				else:
 					print("\nPossible Decrypted Text:", output)
 		else:
